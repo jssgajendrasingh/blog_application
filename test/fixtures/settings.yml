@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  blogname: MyString
+  postperpage: 1
+  if_maintenance: false
+
+two:
+  blogname: MyString
+  postperpage: 1
+  if_maintenance: false
