@@ -1,0 +1,15 @@
+<h1 align="center">Article List With User Name</h1>
+<table align="center" border="1">
+	<tr>
+		<td>Title</td>
+		<td>Content</td>
+		<td>Author</td>
+	</tr>
+	<% @articles.each do |article| %>
+	<tr>
+		<td><%= article[:title] %></td>
+		<td><%= article[:content] %></td>
+		<td><%= User.find_by(id: article[:user_id]).firstname %></td>
+	</tr>
+	<% end %>
+</table>

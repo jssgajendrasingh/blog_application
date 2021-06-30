@@ -1,0 +1,21 @@
+<h1 align="center">User Edit Page</h1>
+<%= form_for [:admin, @user] do |f| %>
+	<p>
+	  <%= f.label :firstname %>
+	  <%= f.text_field :firstname %>
+	</p>
+	<p>
+	  <%= f.label :lastname %>
+	  <%= f.text_field :lastname %>
+	</p>
+  <p>
+	  <%= f.label :about %>
+	  <%= f.text_field :about %>
+	</p>
+	<p>
+	  <%= f.label :email %>
+	  <%= f.text_field :email %>
+	</p>
+	
+  <%= f.submit %>
+<% end %>
