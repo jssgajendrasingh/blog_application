@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_30_050311) do
+ActiveRecord::Schema.define(version: 2021_07_05_095227) do
 
   create_table "article_tags", force: :cascade do |t|
     t.integer "article_id"
@@ -47,10 +47,11 @@ ActiveRecord::Schema.define(version: 2021_06_30_050311) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.string "notifiable_type"
-    t.integer "notifiable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "Notifiable_type"
+    t.integer "Notifiable_id"
+    t.index ["Notifiable_type", "Notifiable_id"], name: "index_notifications_on_Notifiable_type_and_Notifiable_id"
   end
 
   create_table "settings", force: :cascade do |t|

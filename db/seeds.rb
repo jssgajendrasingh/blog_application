@@ -19,7 +19,7 @@
 #end	
 
 10.times do
-	user = User.create(firstname: Faker::Name.first_name, lastname: Faker::Name.last_name, email: Faker::Internet.email,  about: Faker::Lorem.paragraphs, password_digest: "123456")
+	user = User.create(firstname: Faker::Name.first_name, lastname: Faker::Name.last_name, email: Faker::Internet.email,  about: Faker::Lorem.paragraphs, password: "123456")
 	article = Article.create(title: Faker::Lorem.sentence, content: Faker::Lorem.paragraphs, is_publish: [true, false].sample, user: user)
 	#article = Article.create(title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph, is_publish: [true, false].sample, user_id: user)
 

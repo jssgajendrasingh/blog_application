@@ -1,4 +1,11 @@
 <h1 align="center">User List</h1><br><br>
+<h2 align="center"><%= link_to( "ADD User",new_admin_user_path)%></h2>
+<h2 align="center">
+<% flash.each do |name,msg| -%>
+  <%= content_tag :div, msg,class: name %>
+<% end %>	
+</h2>
+
 <table align= "center" border="1">
 	<tr>
 		<td>Full Name</td>
@@ -12,9 +19,8 @@
 		<td><%= user[:email] %></td>
 		<td><%= time_ago_in_words(user[:created_at]) %> ago</td>
 		<td>
-		<%= link_to( "Edit", controller: "admin/users", action: "edit", id: user[:id]) %>	
+			<%= link_to( "Edit",edit_admin_user_path(user)) %>	
 		</td>
-		
 	</tr>
 	<% end %>
 </table>
