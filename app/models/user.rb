@@ -11,4 +11,5 @@ class User < ApplicationRecord
   def log_user_update_to_db
   	puts 'User was Update to database'
   end	
+  
 end

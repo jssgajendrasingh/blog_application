@@ -1,0 +1,7 @@
+<%= form_for( :user,url: find_user_by_name_admin_users_path) do |f|%>
+	<p>
+		<%=f.label :firstname %>
+		<%=f.text_field :firstname %>
+	</p>
+	<%=f.submit("search") %>
+<% end %>

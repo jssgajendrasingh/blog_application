@@ -1,6 +1,13 @@
 class Admin::UsersController < ApplicationController
 	def index 
-		@user = User.all
+		#byebug
+		name = params[:q]
+		puts name.nil?
+		if name.nil? == true
+			@user = User.all
+		else
+			@user = User.where(firstname: name)
+		end		
 	end	
 	def new
 
@@ -23,6 +30,16 @@ class Admin::UsersController < ApplicationController
      redirect_to admin_users_path, notice:  "Your Record is successfully updated"
 	end	
 	
+	def search_form
+		
+	end	
+	def find_user_by_name
+		user = params.require(:user).permit(:firstname)
+		redirect_to action: 'index',name: user
+		# puts "User = #{user}"
+		# @user = User.find_by(firstname: user[:firstname])
+		# puts "User = #{@user}"
+	end	
 	private
 	
 	def user_params
@@ -34,4 +51,7 @@ class Admin::UsersController < ApplicationController
 			params.require(:user).permit(:firstname,:lastname,:email,:about,:password)
 		end	
 	end
+
+	
+		
 end

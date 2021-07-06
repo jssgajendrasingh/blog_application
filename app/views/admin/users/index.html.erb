@@ -1,5 +1,16 @@
 <h1 align="center">User List</h1><br><br>
-<h2 align="center"><%= link_to( "ADD User",new_admin_user_path)%></h2>
+<h2 align="center">
+<%= link_to( "ADD User",new_admin_user_path)%>&nbsp&nbsp
+<%= link_to( "Home",admin_users_path)%>&nbsp&nbsp
+
+</h2>
+<center>
+<%=form_tag(admin_users_path,method: :get)  do %>
+ <%= label_tag(:q,"first name")%>
+ <%= text_field_tag(:q) %>  
+ <%= button_tag("Search") %>
+<% end %>	
+</center>
 <h2 align="center">
 <% flash.each do |name,msg| -%>
   <%= content_tag :div, msg,class: name %>
