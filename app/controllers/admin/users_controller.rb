@@ -6,7 +6,7 @@ class Admin::UsersController < ApplicationController
 		if name.nil? == true
 			@user = User.all
 		else
-			@user = User.where(firstname: name)
+			@user = User.where('lower(firstname) = ?', name.downcase)
 		end		
 	end	
 	def new
