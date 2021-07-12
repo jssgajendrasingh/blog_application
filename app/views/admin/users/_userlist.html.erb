@@ -1,0 +1,22 @@
+<table align="center" border="1" >
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>About</th>
+    <th>Email</th>
+    <th>Create</th>
+    <th>Action</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.firstname %></td>
+      <td><%= user.lastname %></td>
+      <td><%= user.about %></td>
+      <td><%= user.email %>
+      <td><%= time_ago_in_words(user.created_at) %> ago</td>
+      <td>
+        <%= link_to("Edit",edit_admin_user_path(user)) %>
+      </td> 
+    </tr>
+  <% end %>
+</table>

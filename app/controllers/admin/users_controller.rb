@@ -1,14 +1,14 @@
 class Admin::UsersController < ApplicationController
+	
 	def index 
-		#byebug
-		name = params[:q]
-		puts name.nil?
-		if name.nil? == true
-			@user = User.all
+		if params[:q].present? && request.xhr?
+			binding.pry
+			@users = User.where('firstname LIKE ?', "%#{params[:q]}%")
 		else
-			@user = User.where('lower(firstname) = ?', name.downcase)
-		end		
+			@users = User.all
+		end
 	end	
+
 	def new
 
 	end  
